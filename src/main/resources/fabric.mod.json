@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "tnttime",
+  "version": "${version}",
+  "license": "MIT",
+  "icon": "assets/tnttime/icon.png",
+
+  "name": "TNT Time",
+  "description": "Displays time left to the TNT explosion above primed TNT!",
+  "authors": [
+    "Shateq", "Sk1erLLC - formal author"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/shateq/fabricmc-example/"
+  },
+  
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "shateq.mods.fabric.tnttime.Main"
+    ]
+  },
+  "mixins": ["tnttime.mixins.json"],
+  
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "minecraft": "1.17.x"
+  },
+  "recommends": {
+    "modmenu": "*"
+  }
+}
