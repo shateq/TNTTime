@@ -1,3 +1,5 @@
+<img src="logo.png" width="256">
+
 # TNT Time Refabricated
 **Displays time left to the TNT explosion above primed TNT!** 
 Another legacy mod brought to the newest Minecraft release!
