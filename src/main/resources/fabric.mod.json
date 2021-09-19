@@ -3,7 +3,7 @@
   "id": "tnttime",
   "version": "${version}",
   "license": "MIT",
-  "icon": "assets/tnttime/icon.png",
+  "icon": "assets/tnttime/icon-128.png",
 
   "name": "TNT Time",
   "description": "Displays time left to the TNT explosion above primed TNT!",
