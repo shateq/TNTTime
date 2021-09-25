@@ -7,6 +7,10 @@ Another legacy mod brought to the newest Minecraft release!
 
 *Modification should work without Fabric API, downloads and more coming soon*
 
+## Download
+[Modrinth](https://modrinth.com/mod/tnttime) |
+[GitHub Releases](https://github.com/shateq/tnttime/releases) |
+[CurseForge](https://www.curseforge.com/minecraft/mc-mods/tnttime)
 ---
 ### License
 Project and repository are available under MIT license, check `LICENSE` file for more details.
