@@ -8,6 +8,8 @@ Another legacy mod brought to the newest Minecraft release!
 *Modification should work without Fabric API, downloads and more coming soon*
 
 ## Download
+[![latest-builds](https://github.com/shateq/TNTTime/actions/workflows/gradle.yml/badge.svg)](https://github.com/shateq/TNTTime/actions/workflows/gradle.yml)
+
 [Modrinth](https://modrinth.com/mod/tnttime) |
 [GitHub Releases](https://github.com/shateq/tnttime/releases) |
 [CurseForge](https://www.curseforge.com/minecraft/mc-mods/tnttime)

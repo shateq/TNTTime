@@ -12,11 +12,8 @@ jobs:
       with:
         java-version: 16
         distribution: 'adopt'
-    - uses: gradle/wrapper-validation-action@v1
     - name: Build 
-      uses: gradle/gradle-build-action@v2
-      with:
-        arguments: build
+      run: ./gradlew build
     - name: Upload artifacts
       uses: actions/upload-artifact@v1
       with:
