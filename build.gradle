@@ -1,5 +1,5 @@
 plugins {
-	id "fabric-loom" version "0.10"
+	id "fabric-loom" version "0.10.9"
 }
 
 sourceCompatibility = JavaVersion.VERSION_16
@@ -15,7 +15,7 @@ repositories {}
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-	modImplementation "net.fabricmc:fabric-loader:0.11.7"
+	modImplementation "net.fabricmc:fabric-loader:${project.loader}"
 }
 
 processResources {

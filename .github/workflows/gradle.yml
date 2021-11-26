@@ -12,6 +12,8 @@ jobs:
       with:
         java-version: 16
         distribution: 'adopt'
+    - name: Wrapper validation
+      run: chmod +x ./gradlew
     - name: Build 
       run: ./gradlew build
     - name: Upload artifacts
