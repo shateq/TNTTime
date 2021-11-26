@@ -14,10 +14,11 @@ jobs:
         distribution: 'adopt'
     - name: Wrapper validation
       run: chmod +x ./gradlew
-      run: ref="${GITHUB_REF#refs/heads/}" && echo "::set-output name=branch::${ref////-}"
-      id: ref
     - name: Build 
       run: ./gradlew build
+    - name: Reference
+      run: ref="${GITHUB_REF#refs/heads/}" && echo "::set-output name=branch::${ref////-}"
+      id: ref
     - name: Upload artifacts
       uses: actions/upload-artifact@v1
       with:
