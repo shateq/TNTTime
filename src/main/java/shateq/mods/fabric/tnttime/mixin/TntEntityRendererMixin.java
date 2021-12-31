@@ -39,7 +39,7 @@ public abstract class TntEntityRendererMixin extends EntityRenderer<TntEntity> {
             matrices.translate(0.0D, f, 0.0D);
             matrices.multiply(this.dispatcher.getRotation());
             matrices.scale(-0.025F, -0.025F, 0.025F);
-            final Matrix4f matrix4f = matrices.peek().getModel();
+            final Matrix4f matrix4f = matrices.peek().getPositionMatrix();
 
             float backgroundOpacity = MinecraftClient.getInstance().options.getTextBackgroundOpacity(0.25F);
             int backgroundColor = (int) (backgroundOpacity * 255.0F) << 24;

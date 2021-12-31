@@ -1,5 +1,5 @@
 plugins {
-	id "fabric-loom" version "0.10-SNAPSHOT"
+    id "fabric-loom" version "0.10-SNAPSHOT"
 }
 
 version = "1.0.0"
@@ -16,14 +16,14 @@ dependencies {
 }
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(16))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
     // withSourcesJar()
 }
 
 tasks {
     compileJava {
         options.encoding = "UTF-8" // Must have!
-        options.release.set(16)
+        options.release.set(17)
     }
 
     processResources {
