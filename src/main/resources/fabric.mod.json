@@ -7,12 +7,14 @@
 
   "name": "TNT Time",
   "description": "Displays time left to the TNT explosion above primed TNT!",
-  "authors": ["Shateq", "Sk1erLLC - formal author"],
-  "contributors": ["moehreag"],
+  "authors": ["Shateq", "Sk1erLLC - formal"],
+  "contributors": [
+      "moehreag"
+  ],
   "contact": {
-    "homepage": "https://github.com/shateq",
-    "sources": "https://github.com/shateq/tnttime",
-    "issues": "https://github.com/shateq/tnttime/issues"
+    "homepage": "https://github.com/shateq/TNTTime",
+    "sources": "https://github.dev/shateq/TNTTime",
+    "issues": "https://github.com/shateq/TNTTime/issues"
   },
   
   "environment": "client",
@@ -20,9 +22,8 @@
     "client": ["shateq.mods.fabric.tnttime.Main"]
   },
   "mixins": ["tnttime.mixins.json"],
-  
   "depends": {
-    "fabricloader": ">=0.12.11",
+    "fabricloader": ">=0.12.0",
     "minecraft": "1.18.x"
   },
   "recommends": {

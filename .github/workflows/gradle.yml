@@ -1,9 +1,7 @@
-name: latest-builds
-
+name: CI
 on: [ push, pull_request ]
-
 jobs:
-  build:
+  Build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
