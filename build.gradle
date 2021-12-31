@@ -1,38 +1,44 @@
 plugins {
-	id "fabric-loom" version "0.10.9"
+	id "fabric-loom" version "0.10-SNAPSHOT"
 }
 
-sourceCompatibility = JavaVersion.VERSION_16
-targetCompatibility = JavaVersion.VERSION_16
-
-archivesBaseName = project.archives_base_name
-version = project.mod_version
-group = project.maven_group
+version = "1.0.0"
+group = "shateq.mods"
+archivesBaseName = "${project.name}-mc${project.minecraft}"
 
 // Just see https://docs.gradle.org/current/userguide/declaring_repositories.html
 repositories {}
 
 dependencies {
-	minecraft "com.mojang:minecraft:${project.minecraft_version}"
-	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+	minecraft "com.mojang:minecraft:${project.minecraft}"
+	mappings "net.fabricmc:yarn:${project.yarn}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader}"
 }
 
-processResources {
-	inputs.property "version", project.version
-
-	filesMatching("fabric.mod.json") {
-		expand "version": project.version
-	}
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(16))
+    // withSourcesJar()
 }
 
-tasks.withType(JavaCompile).configureEach {
-	it.options.encoding = "UTF-8" // Must have!
-	it.options.release.set(16)
-}
+tasks {
+    compileJava {
+        options.encoding = "UTF-8" // Must have!
+        options.release.set(16)
+    }
 
-jar {
-	from("LICENSE") {
-		rename { "${it}_${project.archivesBaseName}"}
-	}
+    processResources {
+        filteringCharset = "UTF-8" // Must have!
+
+        filesMatching("fabric.mod.json") {
+            expand (
+                "version": version
+            )
+        }
+    }
+
+    jar {
+        from("LICENSE") {
+            rename { "LICENSE_${project.name}" }
+        }
+    }
 }
