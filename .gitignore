@@ -1,16 +1,8 @@
-*~
-*.DS_Store
-
-# gradle
+run/
 .gradle/
 build/
 out/
 classes/
-run/
-
-# eclipse
-eclipse
-*.launch
 
 # idea
 .idea/
@@ -24,3 +16,7 @@ eclipse
 bin/
 .classpath
 .project
+
+*.launch
+*.DS_Store
+~*

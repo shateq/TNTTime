@@ -1,40 +1,39 @@
-import java.nio.charset.StandardCharsets
-
 plugins {
-    id("fabric-loom") version "0.11.+"
+    id("fabric-loom") version "0.12-SNAPSHOT"
 }
 
 group = "shateq.mods"
-archivesBaseName = "${project.name}-mc${project.minecraft}"
 version = "1.0.0"
-
-repositories {
-    mavenCentral()
-}
+base.archivesName = "${project.name}-mc${project.minecraft}"
 
 dependencies {
-	minecraft("com.mojang:minecraft:${project.minecraft}")
-	mappings("net.fabricmc:yarn:${project.yarn}:v2")
-	modImplementation("net.fabricmc:fabric-loader:${project.loader}")
+    minecraft("com.mojang:minecraft:${project.minecraft}")
+    mappings("net.fabricmc:yarn:${project.yarn}:v2")
+    modImplementation("net.fabricmc:fabric-loader:${project.loader}")
+
 }
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(17))
-    // withSourcesJar()
+    withSourcesJar()
+}
+
+loom {
+    mixin.defaultRefmapName.set("tnttime.refmap.json")
 }
 
 tasks {
     compileJava {
-        options.encoding = StandardCharsets.UTF_8.name() // Must have!
+        options.encoding = "UTF-8" // Must have!
         options.release.set(17)
     }
 
     processResources {
-        filteringCharset = StandardCharsets.UTF_8.name() // Must have "UTF-8"
+        filteringCharset = "UTF-8"
 
         filesMatching("fabric.mod.json") {
-            expand (
-                "version": version
+            expand(
+                "version" : version
             )
         }
     }

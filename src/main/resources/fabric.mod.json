@@ -19,11 +19,13 @@
   
   "environment": "client",
   "entrypoints": {
-    "client": ["shateq.mods.fabric.tnttime.Main"]
+    "client": [
+      "shateq.tnttime.fabric.Main"
+    ]
   },
   "mixins": ["tnttime.mixins.json"],
   "depends": {
-    "fabricloader": ">=0.12.0",
+    "fabricloader": ">=0.12.12",
     "minecraft": "1.18.x"
   },
   "recommends": {

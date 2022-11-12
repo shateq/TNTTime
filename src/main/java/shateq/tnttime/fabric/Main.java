@@ -1,4 +1,4 @@
-package shateq.mods.fabric.tnttime;
+package shateq.tnttime.fabric;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;

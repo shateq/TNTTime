@@ -1,4 +1,4 @@
-package shateq.mods.fabric.tnttime.mixin;
+package shateq.tnttime.mixin;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import shateq.mods.fabric.tnttime.Main;
+import shateq.tnttime.fabric.Main;
 
 @Mixin(TntEntityRenderer.class)
 public abstract class TntEntityRendererMixin extends EntityRenderer<TntEntity> {
