@@ -2,7 +2,7 @@ plugins {
     id("fabric-loom") version "0.12-SNAPSHOT"
 }
 
-group = "shateq.mods"
+group = "shateq.mods"//notimportant nopublishing
 version = "1.0.0"
 base.archivesName = "${project.name}-mc${project.minecraft}"
 
@@ -10,7 +10,6 @@ dependencies {
     minecraft("com.mojang:minecraft:${project.minecraft}")
     mappings("net.fabricmc:yarn:${project.yarn}:v2")
     modImplementation("net.fabricmc:fabric-loader:${project.loader}")
-
 }
 
 java {
@@ -18,26 +17,20 @@ java {
     withSourcesJar()
 }
 
-loom {
-    mixin.defaultRefmapName.set("tnttime.refmap.json")
-}
-
 tasks {
+    loom {
+        mixin.defaultRefmapName.set("tnttime.refmap.json")
+    }
     compileJava {
         options.encoding = "UTF-8" // Must have!
         options.release.set(17)
     }
-
     processResources {
         filteringCharset = "UTF-8"
-
         filesMatching("fabric.mod.json") {
-            expand(
-                "version" : version
-            )
+            expand("version" : version)
         }
     }
-
     jar {
         from("LICENSE") {
             rename { "LICENSE_${project.name}" }

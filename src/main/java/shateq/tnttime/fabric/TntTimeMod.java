@@ -10,7 +10,7 @@ import net.minecraft.util.Formatting;
 import java.text.DecimalFormat;
 
 @Environment(EnvType.CLIENT)
-public class Main implements ClientModInitializer {
+public class TntTimeMod implements ClientModInitializer {
     public static final String id = "tnttime";
     public static final DecimalFormat decimalFormat = new DecimalFormat("0.00");
 
@@ -19,10 +19,9 @@ public class Main implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         colored = false;
-
-//        FabricLoader.getInstance().getModContainer(id).ifPresent(modContainer -> {
-//            ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(id+":nicelogo"),  modContainer, ResourcePackActivationType.NORMAL);
-//        });
+        /*FabricLoader.getInstance().getModContainer(id).ifPresent(modContainer -> {
+            ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(id+":nicelogo"),  modContainer, ResourcePackActivationType.NORMAL);
+        });*/
     }
 
     public static Text getTime(double ticks) {

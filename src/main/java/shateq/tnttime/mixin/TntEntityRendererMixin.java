@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import shateq.tnttime.fabric.Main;
+import shateq.tnttime.fabric.TntTimeMod;
 
 @Mixin(TntEntityRenderer.class)
 public abstract class TntEntityRendererMixin extends EntityRenderer<TntEntity> {
@@ -31,7 +31,7 @@ public abstract class TntEntityRendererMixin extends EntityRenderer<TntEntity> {
     protected void renderLabel(TntEntity entity, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
         double d = this.dispatcher.getSquaredDistanceToCamera(entity);
         if (!(d > 4096.0D)) {
-            Text text = Main.getTime(entity.getFuse());
+            Text text = TntTimeMod.getTime(entity.getFuse());
 
             float f = entity.getHeight() + 0.5F;
 

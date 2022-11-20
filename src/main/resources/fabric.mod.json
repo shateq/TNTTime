@@ -20,7 +20,7 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "shateq.tnttime.fabric.Main"
+      "shateq.tnttime.fabric.TntTimeMod"
     ]
   },
   "mixins": ["tnttime.mixins.json"],
