@@ -23,7 +23,7 @@ public abstract class TntEntityRendererMixin extends EntityRenderer<TntEntity> {
         super(ctx);
     }
 
-    @Inject(method = "render", at = @At(value = "TAIL"))
+    @Inject(method = "render*", at = @At(value = "TAIL"))
     public void render(TntEntity tntEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, CallbackInfo ci) {
         renderLabel(tntEntity, matrixStack, vertexConsumerProvider, i);
     }

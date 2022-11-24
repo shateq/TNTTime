@@ -14,11 +14,8 @@ public class TntTimeMod implements ClientModInitializer {
     public static final String id = "tnttime";
     public static final DecimalFormat decimalFormat = new DecimalFormat("0.00");
 
-    private static boolean colored;
-
     @Override
     public void onInitializeClient() {
-        colored = false;
         /*FabricLoader.getInstance().getModContainer(id).ifPresent(modContainer -> {
             ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(id+":nicelogo"),  modContainer, ResourcePackActivationType.NORMAL);
         });*/
@@ -26,7 +23,8 @@ public class TntTimeMod implements ClientModInitializer {
 
     public static Text getTime(double ticks) {
         Formatting format = Formatting.WHITE;
-        colored = areChatColors();
+        var colored = areChatColors();
+
         double timing = ticks / 20;
 
         if (!colored) {
@@ -52,6 +50,6 @@ public class TntTimeMod implements ClientModInitializer {
     }
 
     private static boolean areChatColors() {
-        return MinecraftClient.getInstance().options.chatColors;
+        return MinecraftClient.getInstance().options.getChatColors().getValue();
     }
 }
