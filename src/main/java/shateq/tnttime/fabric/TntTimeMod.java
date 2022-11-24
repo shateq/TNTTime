@@ -11,15 +11,7 @@ import java.text.DecimalFormat;
 
 @Environment(EnvType.CLIENT)
 public class TntTimeMod implements ClientModInitializer {
-    public static final String id = "tnttime";
     public static final DecimalFormat decimalFormat = new DecimalFormat("0.00");
-
-    @Override
-    public void onInitializeClient() {
-        /*FabricLoader.getInstance().getModContainer(id).ifPresent(modContainer -> {
-            ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(id+":nicelogo"),  modContainer, ResourcePackActivationType.NORMAL);
-        });*/
-    }
 
     public static Text getTime(double ticks) {
         Formatting format = Formatting.WHITE;
@@ -51,5 +43,13 @@ public class TntTimeMod implements ClientModInitializer {
 
     private static boolean areChatColors() {
         return MinecraftClient.getInstance().options.getChatColors().getValue();
+    }
+
+    @Override
+    public void onInitializeClient() {
+        /*public static final String id = "tnttime";
+        FabricLoader.getInstance().getModContainer(id).ifPresent(modContainer -> {
+            ResourceManagerHelper.registerBuiltinResourcePack(new Identifier(id+":nicelogo"),  modContainer, ResourcePackActivationType.NORMAL);
+        });*/
     }
 }

@@ -6,7 +6,7 @@ group = "shateq.mods"//notimportant nopublishing
 version = "1.1.0"
 base.archivesName = "${project.name}-mc${project.minecraft}"
 
-repositories.maven{url "https://jitpack.io"}
+repositories.maven { url "https://jitpack.io" }
 
 dependencies {
     minecraft("com.mojang:minecraft:${project.minecraft}")
@@ -35,7 +35,7 @@ tasks {
     processResources {
         filteringCharset = "UTF-8"
         filesMatching("fabric.mod.json") {
-            expand("version" : version)
+            expand("version": version)
         }
     }
     jar {
