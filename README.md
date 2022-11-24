@@ -2,6 +2,8 @@
 
 # TNT Time Refabricated
 
+[![Rinth](https://modrinth-utils.vercel.app/api/badge/downloads?id=tnttime&logo=true)](https://modrinth.com/mod/tnttime/versions)
+
 **Displays time left to the TNT explosion above primed TNT!**
 
 Modification will work without Fabric API, downloads available!
