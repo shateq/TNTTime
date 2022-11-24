@@ -4,31 +4,31 @@
   "version": "${version}",
   "license": "MIT",
   "icon": "assets/tnttime/icon-128.png",
-
   "name": "TNT Time",
   "description": "Displays time left to the TNT explosion above primed TNT!",
-  "authors": ["Shateq", "Sk1erLLC - formal"],
+  "authors": [
+    "Shateq",
+    "Sk1erLLC - formal"
+  ],
   "contributors": [
-      "moehreag"
+    "moehreag"
   ],
   "contact": {
-    "homepage": "https://github.com/shateq/TNTTime",
+    "homepage": "https://modrinth.com/mod/tnttime",
     "sources": "https://github.dev/shateq/TNTTime",
     "issues": "https://github.com/shateq/TNTTime/issues"
   },
-  
   "environment": "client",
   "entrypoints": {
     "client": [
       "shateq.tnttime.fabric.TntTimeMod"
     ]
   },
-  "mixins": ["tnttime.mixins.json"],
+  "mixins": [
+    "tnttime.mixins.json"
+  ],
   "depends": {
-    "fabricloader": ">=0.12.12",
+    "fabricloader": ">=0.13",
     "minecraft": "1.18.x"
-  },
-  "recommends": {
-    "modmenu": "*"
   }
 }

@@ -1,5 +1,5 @@
 plugins {
-    id("fabric-loom") version "0.12-SNAPSHOT"
+    id("fabric-loom") version "1.0-SNAPSHOT"
 }
 
 group = "shateq.mods"//notimportant nopublishing
@@ -9,6 +9,7 @@ base.archivesName = "${project.name}-mc${project.minecraft}"
 dependencies {
     minecraft("com.mojang:minecraft:${project.minecraft}")
     mappings("net.fabricmc:yarn:${project.yarn}:v2")
+
     modImplementation("net.fabricmc:fabric-loader:${project.loader}")
 }
 
@@ -24,6 +25,9 @@ tasks {
     compileJava {
         options.encoding = "UTF-8" // Must have!
         options.release.set(17)
+    }
+    jar {
+        manifest.attributes("Implementation-Version": rootProject.version)
     }
     processResources {
         filteringCharset = "UTF-8"
