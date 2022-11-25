@@ -23,8 +23,8 @@ public abstract class TntEntityRendererMixin extends EntityRenderer<TntEntity> {
         super(ctx);
     }
 
-    @Inject(method = "render*", at = @At(value = "TAIL"))
-    public void render(TntEntity tntEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, CallbackInfo ci) {
+    @Inject(at = @At(value = "TAIL"), method = "render*")
+    private void render(TntEntity tntEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, CallbackInfo ci) {
         renderLabel(tntEntity, matrixStack, vertexConsumerProvider, i);
     }
 
@@ -33,10 +33,10 @@ public abstract class TntEntityRendererMixin extends EntityRenderer<TntEntity> {
         if (!(d > 4096.0D)) {
             Text text = TntTimeMod.getTime(entity.getFuse());
 
-            float f = entity.getHeight() + 0.5F;
+            float height = entity.getHeight() + 0.5F;
 
             matrices.push();
-            matrices.translate(0.0D, f, 0.0D);
+            matrices.translate(0.0D, height, 0.0D);
             matrices.multiply(this.dispatcher.getRotation());
             matrices.scale(-0.025F, -0.025F, 0.025F);
             final Matrix4f matrix4f = matrices.peek().getPositionMatrix();
