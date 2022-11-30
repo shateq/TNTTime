@@ -28,7 +28,7 @@
     "tnttime.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.13",
+    "fabricloader": ">=0.14",
     "minecraft": "1.19.x"
   }
 }

@@ -2,16 +2,16 @@ plugins {
     id("fabric-loom") version "1.0-SNAPSHOT"
 }
 
-group = "shateq.mods"//notimportant nopublishing
 version = "1.1.0"
-base.archivesName = "${project.name}-mc${project.minecraft}"
+group = "shateq.mods"//notimportant nopublishing
+base.archivesName = "${project.name}-$version-mc${project.minecraft}"
+description = "A countdown to the detonation."
 
 repositories.maven { url "https://jitpack.io" }
 
 dependencies {
     minecraft("com.mojang:minecraft:${project.minecraft}")
     mappings("net.fabricmc:yarn:${project.yarn}:v2")
-
     modImplementation("net.fabricmc:fabric-loader:${project.loader}")
     //modRuntimeOnly("com.github.astei:lazydfu:0.1.3")
 }
@@ -22,25 +22,21 @@ java {
 }
 
 tasks {
-    loom {
-        mixin.defaultRefmapName.set("tnttime.refmap.json")
-    }
+    loom.mixin.defaultRefmapName.set("tnttime.refmap.json")
     compileJava {
         options.encoding = "UTF-8" // Must have!
         options.release.set(17)
     }
     jar {
         manifest.attributes("Implementation-Version": rootProject.version)
+        from("LICENSE") {
+            rename { "LICENSE_${project.name}" }
+        }
     }
     processResources {
         filteringCharset = "UTF-8"
         filesMatching("fabric.mod.json") {
             expand("version": version)
-        }
-    }
-    jar {
-        from("LICENSE") {
-            rename { "LICENSE_${project.name}" }
         }
     }
 }
