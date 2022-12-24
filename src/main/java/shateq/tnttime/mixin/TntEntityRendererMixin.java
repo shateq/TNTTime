@@ -1,15 +1,11 @@
 package shateq.tnttime.mixin;
 
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.TntEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.TntEntity;
-import net.minecraft.text.Text;
-import net.minecraft.util.math.Matrix4f;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -23,33 +19,10 @@ public abstract class TntEntityRendererMixin extends EntityRenderer<TntEntity> {
         super(ctx);
     }
 
-    @Inject(at = @At(value = "TAIL"), method = "render*")
-    private void render(TntEntity tntEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, CallbackInfo ci) {
-        renderLabel(tntEntity, matrixStack, vertexConsumerProvider, i);
-    }
-
-    protected void renderLabel(TntEntity entity, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
-        double d = this.dispatcher.getSquaredDistanceToCamera(entity);
-        if (!(d > 4096.0D)) {
-            Text text = TntTimeMod.getTime(entity.getFuse());
-
-            float height = entity.getHeight() + 0.5F;
-
-            matrices.push();
-            matrices.translate(0.0D, height, 0.0D);
-            matrices.multiply(this.dispatcher.getRotation());
-            matrices.scale(-0.025F, -0.025F, 0.025F);
-            final Matrix4f matrix4f = matrices.peek().getPositionMatrix();
-
-            float backgroundOpacity = MinecraftClient.getInstance().options.getTextBackgroundOpacity(0.25F);
-            int backgroundColor = (int) (backgroundOpacity * 255.0F) << 24;
-
-            final TextRenderer textRenderer = this.getTextRenderer();
-            float x = (float) (-textRenderer.getWidth(text) / 2);
-            float y = -4;
-
-            textRenderer.draw(text, x, y, 7, true, matrix4f, vertexConsumers, false, backgroundColor, light);
-            matrices.pop();
-        }
+    @Inject(method = "render(Lnet/minecraft/entity/TntEntity;FFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/entity/EntityRenderer;render(Lnet/minecraft/entity/Entity;FFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V"))
+    public void tnttime$render(TntEntity entity, float yaw, float delta, MatrixStack matrixStack,
+                       VertexConsumerProvider vertexConsumerProvider, int light, CallbackInfo ci) {
+        super.renderLabelIfPresent(entity, TntTimeMod.getTime(entity.getFuse()), matrixStack,
+            vertexConsumerProvider, light);
     }
 }
