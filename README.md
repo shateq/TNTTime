@@ -8,7 +8,7 @@
 
 Modification will work without Fabric API, downloads available!
 
-## Supports 1.19
+## Supports 1.19.3!
 
 Another legacy mod brought to the newest Minecraft release!
 

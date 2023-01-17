@@ -19,10 +19,12 @@ public abstract class TntEntityRendererMixin extends EntityRenderer<TntEntity> {
         super(ctx);
     }
 
-    @Inject(method = "render(Lnet/minecraft/entity/TntEntity;FFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/entity/EntityRenderer;render(Lnet/minecraft/entity/Entity;FFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V"))
-    public void tnttime$render(TntEntity entity, float yaw, float delta, MatrixStack matrixStack,
-                       VertexConsumerProvider vertexConsumerProvider, int light, CallbackInfo ci) {
-        super.renderLabelIfPresent(entity, TntTimeMod.getTime(entity.getFuse()), matrixStack,
-            vertexConsumerProvider, light);
+    @Inject(
+        method = "render(Lnet/minecraft/entity/TntEntity;FFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V",
+        at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/entity/EntityRenderer;render(Lnet/minecraft/entity/Entity;FFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V")
+    )
+    private void renderTntLabel(TntEntity entity, float yaw, float delta, MatrixStack matrixStack,
+                                VertexConsumerProvider vertexConsumerProvider, int light, CallbackInfo ci) {
+        super.renderLabelIfPresent(entity, TntTimeMod.getTime(entity.getFuse()), matrixStack, vertexConsumerProvider, light);
     }
 }
