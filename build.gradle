@@ -1,5 +1,6 @@
 plugins {
     id("fabric-loom")
+    id("com.modrinth.minotaur")
 }
 
 version = "1.2.0"
@@ -44,4 +45,14 @@ tasks {
             expand("version": version)
         }
     }
+}
+
+modrinth {
+    token = System.getenv("MODRINTH_TOKEN")
+    projectId = "tnttime"
+    gameVersions = ["1.19.3"]
+    versionName = "Tnt Time for MC 1.19.3"
+    versionNumber = version
+    versionType = "release"
+    uploadFile = remapJar
 }

@@ -14,7 +14,6 @@ import shateq.tnttime.fabric.TntTimeMod;
 
 @Mixin(TntEntityRenderer.class)
 public abstract class TntEntityRendererMixin extends EntityRenderer<TntEntity> {
-
     protected TntEntityRendererMixin(EntityRendererFactory.Context ctx) {
         super(ctx);
     }
