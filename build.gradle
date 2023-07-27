@@ -52,7 +52,7 @@ modrinth {
     projectId = "tnttime"
     gameVersions = ["1.19.3"]
     versionName = "Tnt Time for MC 1.19.3"
-    versionNumber = version
+    versionNumber = project.version
     versionType = "release"
     uploadFile = remapJar
 }
