@@ -1,5 +1,7 @@
 <img src="assets/logo.png" width="256"  alt="Project's logo"/>
 
+# 1.19.x BRANCH - to be updated! I don't like this mixin code.
+
 # TNT Time Refabricated
 
 ![Modrinth Downloads](https://img.shields.io/modrinth/dt/tnttime?link=https%3A%2F%2Fmodrinth.com%2Fmod%2Ftnttime%2Fversions)
