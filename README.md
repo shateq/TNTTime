@@ -1,8 +1,8 @@
-<img src="logo.png" width="256" />
+<img src="assets/logo.png" width="256"  alt="Project's logo"/>
 
 # TNT Time Refabricated
 
-[![Rinth](https://modrinth-utils.vercel.app/api/badge/downloads?id=tnttime&logo=true)](https://modrinth.com/mod/tnttime/versions)
+![Modrinth Downloads](https://img.shields.io/modrinth/dt/tnttime?link=https%3A%2F%2Fmodrinth.com%2Fmod%2Ftnttime%2Fversions)
 
 **Displays time left to the TNT explosion above primed TNT!**
 
@@ -22,6 +22,8 @@ Another legacy mod brought to the newest Minecraft release!
 
 [CurseForge](https://www.curseforge.com/minecraft/mc-mods/tnttime)
 
-## License
+[![Available on Modrinth](https://raw.githubusercontent.com/intergrav/devins-badges/v2/assets/cozy/available/modrinth_64h.png)](https://modrinth.com/mod/tnttime)
+
+### License
 
 Licensed under MIT. Check [LICENSE](LICENSE) file for details.
