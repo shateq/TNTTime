@@ -1,23 +1,26 @@
 plugins {
+    `java-library`
     id("fabric-loom")
     id("com.modrinth.minotaur")
 }
 
-version = "1.2.0"
-base.archivesName = "${project.name}-$version-mc${project.minecraft}"
-description = "A countdown to the detonation of Minecraft TNT."
+fun p(key: String): String = properties[key] as String
+
+version = "1.3.0"
+base.archivesName.set("${rootProject.name}-mc${p("minecraft")}")
+description = "A countdown to the detonation of a TNT."
 
 repositories {
-    maven { url "https://jitpack.io" }
-    maven { url "https://maven.terraformersmc.com/releases/" }
+    //maven("https://jitpack.io")
+    //maven("https://maven.terraformersmc.com/releases/")
 }
 
 dependencies {
-    minecraft("com.mojang:minecraft:${project.minecraft}")
-    mappings("net.fabricmc:yarn:${project.yarn}:v2")
-    modImplementation("net.fabricmc:fabric-loader:${project.loader}")
+    minecraft("com.mojang:minecraft:${p("minecraft")}")
+    mappings("net.fabricmc:yarn:${p("yarn")}:v2")
+    modImplementation("net.fabricmc:fabric-loader:${p("loader")}")
 
-    modRuntimeOnly("com.terraformersmc:modmenu:5.0.2")
+    //modRuntimeOnly("com.terraformersmc:modmenu:5.0.2")
     //modRuntimeOnly("com.github.astei:lazydfu:0.1.3")
 }
 
@@ -27,31 +30,35 @@ java {
 }
 
 tasks {
-    loom.mixin.defaultRefmapName.set("tnttime.refmap.json")
     compileJava {
-        options.encoding = "UTF-8" // Must have!
-        options.release.set(17)
+        options.encoding = "UTF-8"
     }
+
     jar {
-        manifest.attributes("Implementation-Version": rootProject.version)
         from("LICENSE") {
-            rename { "LICENSE_${project.name}" }
+            rename { "LICENSE_${rootProject.name}" }
         }
     }
+
     processResources {
         filteringCharset = "UTF-8"
+
         filesMatching("fabric.mod.json") {
-            expand("version": version)
+            expand(
+                "version" to project.version
+            )
         }
     }
 }
 
 modrinth {
-    token = System.getenv("MODRINTH_TOKEN")
-    projectId = "tnttime"
-    gameVersions = ["1.19.3"]
-    versionName = "Tnt Time for MC 1.19.3"
-    versionNumber = project.version
-    versionType = "release"
-    uploadFile = remapJar
+    token.set(System.getenv("MODRINTH_TOKEN"))
+    projectId.set("tnttime")
+    versionNumber.set("mc$version")
+
+    versionName.set("Tnt Time $version for 1.20 and 1.20.1")
+
+    versionType.set("release")
+    gameVersions.addAll("1.20", "1.20.1")
+    uploadFile.set(tasks["remapJar"])
 }
