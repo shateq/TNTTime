@@ -4,7 +4,6 @@ plugins {
 }
 
 version = "1.2.0"
-group = "shateq.mods"//notimportant nopublishing
 base.archivesName = "${project.name}-$version-mc${project.minecraft}"
 description = "A countdown to the detonation of Minecraft TNT."
 
