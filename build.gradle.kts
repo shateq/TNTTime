@@ -6,7 +6,7 @@ plugins {
 
 fun p(key: String): String = properties[key] as String
 
-version = "1.3.0"
+version = "1.4.1"
 base.archivesName.set("${rootProject.name}-mc${p("minecraft")}")
 description = "A countdown to the detonation of a TNT."
 
@@ -25,7 +25,7 @@ dependencies {
 }
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
     withSourcesJar()
 }
 
@@ -56,9 +56,9 @@ modrinth {
     projectId.set("tnttime")
     versionNumber.set("mc$version")
 
-    versionName.set("Tnt Time $version for 1.20 and 1.20.1")
+    versionName.set("Tnt Time $version for 1.21.4")
 
     versionType.set("release")
-    gameVersions.addAll("1.20", "1.20.1")
+    gameVersions.addAll("1.21.4")
     uploadFile.set(tasks["remapJar"])
 }
